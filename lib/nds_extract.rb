@@ -98,8 +98,15 @@ def movies_with_directors_set(source)
   collection = []
   director_index = 0
   while director_index < source.length do
-    
-    movie_index += 1
+    director_name = source[director_index][:name]
+    director_movies = source[director_index][:movies]
+    movie_index = 0
+    while movie_index < director_movies.length do
+      director_movies[movie_index] = movies_with_director_names(director_name, director_movies[movie_index])
+      movie_index += 1
+    end
+    director_index += 1
+    collection.push(director_movies)
   end
   return collection
 end
