@@ -99,9 +99,9 @@ def movies_with_directors_set(source)
   movie_index = 0
   while movie_index < source.length do
     if collection[source[movie_index][:director_name]]
-      collection[source[movie_index][:director_name]] = [source[movie_index][:name]]
+      collection[source[movie_index][:director_name]] = source[movie_index][:name]
     else
-      collection[source[movie_index][:director_name]] + collection[source[movie_index][:name]]
+      collection[source[movie_index][:director_name]] + source[movie_index][:name]
     end
     movie_index += 1
   end
